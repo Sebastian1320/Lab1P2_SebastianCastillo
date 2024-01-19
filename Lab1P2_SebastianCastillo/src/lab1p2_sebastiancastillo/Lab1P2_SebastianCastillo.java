@@ -29,7 +29,6 @@ public class Lab1P2_SebastianCastillo {
         System.out.println("4. Salir");
         int op = leer.nextInt();
         Date nacimiento;
-        Date actual=new Date();
         ArrayList<Lista> Lista = new ArrayList<>();
         String regex = "^[a-zA-Z0-9._%&$+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         Pattern pattern = Pattern.compile(regex);
@@ -38,19 +37,8 @@ public class Lab1P2_SebastianCastillo {
                 case 1:
                     System.out.println("Ingrese su fecha de nacimiento en el formato de MM/dd/yyyy");
                     nacimiento = new Date(leer.next());
-                    int añoc=actual.getYear()-13;
-                    int mesc=actual.getMonth();
                     int año = nacimiento.getYear();
-                    int mes=nacimiento.getMonth();
-                    int diac=actual.getDate();
-                    int dia=nacimiento.getDate();
-                    System.out.println(mes);
-                    System.out.println(mesc);
-                    System.out.println(dia);
-                    System.out.println(diac);
-                    System.out.println(año);
-                    System.out.println(añoc);
-                    if ((año > añoc)&&(mes>=mesc)&&(dia>diac)) {
+                    if (año > 111) {
                         System.out.println("No puede crear la cuenta");
                         break;
                     }
