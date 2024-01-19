@@ -50,7 +50,7 @@ public class Lab1P2_SebastianCastillo {
                     System.out.println(diac);
                     System.out.println(año);
                     System.out.println(añoc);
-                    if ((año > añoc)&&(mes>=mesc)&&(dia>=diac)) {
+                    if ((año > añoc)&&(mes>=mesc)&&(dia>diac)) {
                         System.out.println("No puede crear la cuenta");
                         break;
                     }
