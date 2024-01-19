@@ -4,6 +4,7 @@
  */
 package lab1p2_sebastiancastillo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -14,6 +15,7 @@ public class Lista {
     private Date nacimiento;
     private String contra;
     private String Correo;
+    private SimpleDateFormat sd=new SimpleDateFormat("yyyy/MM/dd");
     
     public Lista(String contra,String Correo,Date nacimiento){
         this.nacimiento=nacimiento;
@@ -32,10 +34,11 @@ public class Lista {
     public String getCorreo() {
         return Correo;
     }
+    
 
     @Override
     public String toString() {
-        return "Fecha: " + nacimiento + ", Contra: " + contra + ", Correo: " + Correo + '}';
+        return "Fecha: " + sd.format(nacimiento) + ", Contra: " + contra + ", Correo: " + Correo + '}';
     }
     
 }

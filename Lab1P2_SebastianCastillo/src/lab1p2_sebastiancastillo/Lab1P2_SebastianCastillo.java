@@ -7,6 +7,9 @@ package lab1p2_sebastiancastillo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  *
@@ -28,6 +31,7 @@ public class Lab1P2_SebastianCastillo {
         int op = leer.nextInt();
         Date nacimiento;
         ArrayList<Lista> Lista=new ArrayList<>();
+        
         while (op != 4) {
             switch (op) {
                 case 1:
@@ -53,6 +57,12 @@ public class Lab1P2_SebastianCastillo {
                     }
                     break;
                 case 3:
+                    System.out.println("Outlook");
+                    System.out.println("Gmail");
+                    System.out.println("Yahoo");
+                    System.out.println("iCloud");
+                    System.out.println("ProtonMail");
+                    System.out.println("FastMail");
                     break;
                 default:
                     System.out.println("Eliga un opcion valida");
