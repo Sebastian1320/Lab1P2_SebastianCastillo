@@ -38,7 +38,7 @@ public class Lista {
 
     @Override
     public String toString() {
-        return "Fecha: " + sd.format(nacimiento) + ", Contra: " + contra + ", Correo: " + Correo + '}';
+        return "Fecha: " + sd.format(nacimiento) + ", Contra: " + contra + ", Correo: " + Correo ;
     }
     
 }

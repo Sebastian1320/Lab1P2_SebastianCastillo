@@ -29,9 +29,8 @@ public class Lab1P2_SebastianCastillo {
         System.out.println("4. Salir");
         int op = leer.nextInt();
         Date nacimiento;
+        boolean esta=false;
         ArrayList<Lista> Lista = new ArrayList<>();
-        String regex = "^[a-zA-Z0-9._%&$+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-        Pattern pattern = Pattern.compile(regex);
         while (op != 4) {
             switch (op) {
                 case 1:
@@ -44,10 +43,37 @@ public class Lab1P2_SebastianCastillo {
                     }
                     System.out.println("Ingrese el correo");
                     String correo = leerc.next();
-                    System.out.println("Ingrese La contraseña");
+                    for (int i = 0; i < Lista.size(); i++) {
+                        if(Lista.get(i).getCorreo().equals(correo)){
+                            esta=true;
+                            break;
+                        }else{
+                            esta=false;
+                        }
+                    }
+                    while(esta==true){
+                        System.out.println("El corre ya estaba registrado");
+                        System.out.println("Ingrese el correo");
+                        correo = leerc.next();
+                        for (int i = 0; i < Lista.size(); i++) {
+                        if(Lista.get(i).getCorreo().equals(correo)){
+                            esta=true;
+                            break;
+                        }else{
+                            esta=false;
+                        }
+                    }
+                    }
+                    System.out.println("Ingrese una contraseña");
                     String contra = leerc.next();
+                    while(ValidarContra(contra)==false){
+                    System.out.println("Contraseña no valida");
+                    System.out.println("Ingrese una contraseña");
+                    contra = leerc.next();
+                    }
                     Lista listado = new Lista(contra, correo, nacimiento);
                     Lista.add(listado);
+                     
                     break;
                 case 2:
                     for (int i = 0; i < Lista.size(); i++) {
@@ -58,11 +84,53 @@ public class Lab1P2_SebastianCastillo {
                     break;
                 case 3:
                     System.out.println("Outlook");
+                    for (int i = 0; i < Lista.size(); i++) {
+                        if (Lista.get(i).getCorreo().contains("hotmail")) {
+                            Lista.get(i).toString();
+                            System.out.println(i + ". " + Lista.get(i).toString());
+                            System.out.println();
+                        }
+                    }
                     System.out.println("Gmail");
+                    for (int i = 0; i < Lista.size(); i++) {
+                        if (Lista.get(i).getCorreo().contains("gmail")) {
+                            Lista.get(i).toString();
+                            System.out.println(i + ". " + Lista.get(i).toString());
+                            System.out.println();
+                        }
+                    }
                     System.out.println("Yahoo");
+                    for (int i = 0; i < Lista.size(); i++) {
+                        if (Lista.get(i).getCorreo().contains("yahoo")) {
+                            Lista.get(i).toString();
+                            System.out.println(i + ". " + Lista.get(i).toString());
+                            System.out.println();
+                        }
+                    }
                     System.out.println("iCloud");
+                    for (int i = 0; i < Lista.size(); i++) {
+                        if (Lista.get(i).getCorreo().contains("icloud")) {
+                            Lista.get(i).toString();
+                            System.out.println(i + ". " + Lista.get(i).toString());
+                            System.out.println();
+                        }
+                    }
                     System.out.println("ProtonMail");
+                    for (int i = 0; i < Lista.size(); i++) {
+                        if (Lista.get(i).getCorreo().contains("protonmail")) {
+                            Lista.get(i).toString();
+                            System.out.println(i + ". " + Lista.get(i).toString());
+                            System.out.println();
+                        }
+                    }
                     System.out.println("FastMail");
+                    for (int i = 0; i < Lista.size(); i++) {
+                        if (Lista.get(i).getCorreo().contains("fastmail")) {
+                            Lista.get(i).toString();
+                            System.out.println(i + ". " + Lista.get(i).toString());
+                            System.out.println();
+                        }
+                    }
                     break;
                 default:
                     System.out.println("Eliga un opcion valida");
@@ -76,5 +144,12 @@ public class Lab1P2_SebastianCastillo {
             op = leer.nextInt();
         }
     }
-
+    public static boolean ValidarContra(String contra){
+        String regex = "^[a-zA-Z0-9._%&$+-?<>!]{8}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(contra);
+        return matcher.matches();
+    }
+        
+        
 }
