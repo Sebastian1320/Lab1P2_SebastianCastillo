@@ -34,6 +34,10 @@ public class Lab1P2_SebastianCastillo {
         while (op != 4) {
             switch (op) {
                 case 1:
+                    System.out.println("Ingrese nombre");
+                    String nombre=leerc.next();
+                    System.out.println("Ingrese el apellido");
+                    String apellido=leerc.next();
                     System.out.println("Ingrese su fecha de nacimiento en el formato de MM/dd/yyyy");
                     nacimiento = new Date(leer.next());
                     int año = nacimiento.getYear();
@@ -50,6 +54,11 @@ public class Lab1P2_SebastianCastillo {
                         }else{
                             esta=false;
                         }
+                    }
+                    while(ValidarUsuario(correo)==false){
+                        System.out.println("Correo invalido");
+                        System.out.println("Ingrese un correo: ");
+                        correo = leerc.next();
                     }
                     while(esta==true){
                         System.out.println("El corre ya estaba registrado");
@@ -71,11 +80,14 @@ public class Lab1P2_SebastianCastillo {
                     System.out.println("Ingrese una contraseña");
                     contra = leerc.next();
                     }
-                    Lista listado = new Lista(contra, correo, nacimiento);
+                    Lista listado = new Lista(contra, correo, nacimiento,nombre,apellido);
                     Lista.add(listado);
                      
                     break;
                 case 2:
+                    if(Lista.size()==0){
+                        System.out.println("No hay elementos en la lista");
+                    }
                     for (int i = 0; i < Lista.size(); i++) {
                         Lista.get(i).toString();
                         System.out.println(i + ". " + Lista.get(i).toString());
@@ -148,6 +160,11 @@ public class Lab1P2_SebastianCastillo {
         String regex = "^[a-zA-Z0-9._%&$+-?<>!]{8}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(contra);
+        return matcher.matches();
+    }
+    public static boolean ValidarUsuario(String Correo){
+        String regex = "^[a-zA-Z0-9._%&$+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(Correo);
         return matcher.matches();
     }
         

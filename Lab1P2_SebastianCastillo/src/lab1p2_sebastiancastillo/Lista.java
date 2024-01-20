@@ -16,11 +16,15 @@ public class Lista {
     private String contra;
     private String Correo;
     private SimpleDateFormat sd=new SimpleDateFormat("yyyy/MM/dd");
+    private String Nombre;
+    private String Apellido;
     
-    public Lista(String contra,String Correo,Date nacimiento){
+    public Lista(String contra,String Correo,Date nacimiento,String nombre,String apellido){
         this.nacimiento=nacimiento;
         this.contra=contra;
         this.Correo=Correo;
+        this.Nombre=nombre;
+        this.Apellido=apellido;
     }
 
     public Date getNacimiento() {
@@ -34,11 +38,22 @@ public class Lista {
     public String getCorreo() {
         return Correo;
     }
-    
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
 
     @Override
     public String toString() {
-        return "Fecha: " + sd.format(nacimiento) + ", Contra: " + contra + ", Correo: " + Correo ;
+        return " Nombre:" + Nombre + " Apellido: " + Apellido+ " Nacimiento: " + sd.format(nacimiento) + " Contra: " + contra + " Correo: " + Correo;
     }
+    
+    
+
+   
     
 }
